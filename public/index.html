@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="bookerApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Booker App - Mateusz Chrapoński</title>
+
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/4.9.0/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/4.9.0/firebase-auth.js"></script>
+        <script defer src="/__/firebase/4.9.0/firebase-database.js"></script>
+        <script defer src="/__/firebase/4.9.0/firebase-messaging.js"></script>
+        <script defer src="/__/firebase/4.9.0/firebase-storage.js"></script>
+        <!-- initialize the SDK after all desired features are loaded -->
+        <script defer src="/__/firebase/init.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="/assets/style/css/style.css">
+
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ng-view></ng-view>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-route.min.js" charset="utf-8"></script>
+
+        <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+        <script src="app/app.module.js" charset="utf-8"></script>
+        <script src="app/common/configs/firebase.config.js" charset="utf-8"></script>
+        <script src="app/common/configs/routing.config.js" charset="utf-8"></script>
+
+        <script src="app/login/login.module.js" charset="utf-8"></script>
+        <script src="app/dashboard/dashboard.module.js" charset="utf-8"></script>
+
+        <script src="app/dashboard/controllers/dashboard.controller.js" charset="utf-8"></script>
+        <script src="app/login/controllers/login.controller.js" charset="utf-8"></script>
+    </body>
+</html>
