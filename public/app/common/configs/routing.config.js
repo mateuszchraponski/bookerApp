@@ -11,13 +11,66 @@
                     controller: 'DashboardController',
                     resolve: {
                         "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
-                            //return $firebaseAuth().$requireSignIn();
-                            return $firebaseAuth().$waitForSignIn();
+                            return $firebaseAuth().$requireSignIn();
                         }]
                     }
                 }
             )
-
+            .when(
+                '/employees',{
+                    templateUrl: 'app/employees/views/employees.view.html',
+                    controller: 'EmployeesController',
+                    resolve: {
+                        "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
+                            return $firebaseAuth().$requireSignIn();
+                        }]
+                    }
+                }
+            )
+            .when(
+                '/events',{
+                    templateUrl: 'app/events/views/events.view.html',
+                    controller: 'EventsController',
+                    resolve: {
+                        "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
+                            return $firebaseAuth().$requireSignIn();
+                        }]
+                    }
+                }
+            )
+            .when(
+                '/payments',{
+                    templateUrl: 'app/payments/views/payments.view.html',
+                    controller: 'PaymentsController',
+                    resolve: {
+                        "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
+                            return $firebaseAuth().$requireSignIn();
+                        }]
+                    }
+                }
+            )
+            .when(
+                '/settings',{
+                    templateUrl: 'app/settings/views/settings.view.html',
+                    controller: 'SettingsController',
+                    resolve: {
+                        "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
+                            return $firebaseAuth().$requireSignIn();
+                        }]
+                    }
+                }
+            )
+            .when(
+                '/venues',{
+                    templateUrl: 'app/venues/views/venues.view.html',
+                    controller: 'VenuesController',
+                    resolve: {
+                        "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
+                            return $firebaseAuth().$requireSignIn();
+                        }]
+                    }
+                }
+            )
             .when(
                 '/login',{
                     templateUrl: 'app/login/views/login.view.html',

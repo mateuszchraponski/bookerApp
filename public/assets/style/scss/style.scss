@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Roboto:300,400,500,700&subset=latin-ext');
+
+@import "variables";
+@import "helpers";
+
 body {
-    
+    font-family: $main-font;
+    font-size: 13px;
+    font-weight: 400;
+    color: $color-main-font-color;
 }
+
+@import "components/all";
+@import "pages/all";

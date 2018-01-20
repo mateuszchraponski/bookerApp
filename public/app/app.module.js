@@ -6,6 +6,11 @@
             'ngRoute',
             'firebase',
             'login',
-            'dashboard'
+            'dashboard',
+            'employees',
+            'events',
+            'payments',
+            'settings',
+            'venues'
         ]);
 })();
