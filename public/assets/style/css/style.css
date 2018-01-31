@@ -10,8 +10,18 @@
 .x-ng-cloak {
   display: none !important; }
 
+.mt-10 {
+  margin-top: 10px !important; }
+
+.mt-20 {
+  margin-top: 20px !important; }
+
 body {
   font-family: "Roboto", sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: #333; }
+
+.user-name {
+  line-height: 50px;
+  padding-right: 10px; }

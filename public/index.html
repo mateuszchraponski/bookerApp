@@ -2,6 +2,7 @@
 <html ng-app="bookerApp">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Booker App - Mateusz Chrapoński</title>
 
@@ -23,53 +24,77 @@
     </head>
     <body ng-controller="MainController">
         <div class="container-fluid" ng-if="!isAuth && currPath == '/login'" ng-cloak>
-            <p>przed logowaniem</p>
+
             <div class="row">
                 <div class="col-xs-12">
                     <ng-view></ng-view>
                 </div>
             </div>
         </div>
-        <div class="container-fluid" ng-class="{'hidden': !isAuth}" ng-if="isAuth && currPath != '/login'" ng-cloak>
-            <p>po logowaniu - zalogowany jako: {{firebaseUser.email}}</p>
-            <button type="button" name="logout" ng-click="logout()">Wyloguj</button>
 
-            <ul>
-                <li>
-                    <a href="#/dashboard">
-                        Dashboard
+        <nav class="navbar navbar-default" ng-class="{'hidden': !isAuth}" ng-if="isAuth && currPath != '/login'" ng-cloak>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        BookerApp
                     </a>
-                </li>
-                <li>
-                    <a href="#/employees">
-                        Pracownicy
-                    </a>
-                </li>
-                <li>
-                    <a href="#/events">
-                        Wydażenia
-                    </a>
-                </li>
-                <li>
-                    <a href="#/payments">
-                        Płatności
-                    </a>
-                </li>
-                <li>
-                    <a href="#/venues">
-                        Lokalizacje
-                    </a>
-                </li>
-                <li>
-                    <a href="#/settings">
-                        Ustawienia
-                    </a>
-                </li>
-            </ul>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="user-name">
+                            {{firebaseUser.email}}
+                        </li>
+                        <li>
+                            <button type="button" name="logout" class="btn btn-danger btn-sm mt-10" ng-click="logout()">Wyloguj</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid" ng-class="{'hidden': !isAuth}" ng-if="isAuth && currPath != '/login'" ng-cloak>
 
             <div class="row">
-                <div class="col-xs-12">
-                    <ng-view></ng-view>
+                <div class="col-md-2">
+                    <ul>
+                        <li>
+                            <a href="#/dashboard">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/employees">
+                                Pracownicy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/events">
+                                Wydażenia
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/payments">
+                                Płatności
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/venues">
+                                Lokalizacje
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/settings">
+                                Ustawienia
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ng-view></ng-view>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,5 +135,8 @@
 
         <!-- Angular services -->
         <script src="app/common/services/auth.service.js" charset="utf-8"></script>
+        <script src="app/common/services/data.service.js" charset="utf-8"></script>
+        <script src="app/common/services/db.service.js" charset="utf-8"></script>
+        <script src="app/common/services/fire.service.js" charset="utf-8"></script>
     </body>
 </html>

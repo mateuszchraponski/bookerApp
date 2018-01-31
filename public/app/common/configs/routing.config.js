@@ -23,6 +23,9 @@
                     resolve: {
                         "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
                             return $firebaseAuth().$requireSignIn();
+                        }],
+                        "EmployeesData": ['DataService', function(DataService) {
+                            return DataService.getEmployees();
                         }]
                     }
                 }
