@@ -5,42 +5,18 @@
         .module('employees')
         .controller('EmployeesController', EmployeesController);
 
-    EmployeesController.$inject = ['$scope', 'EmployeesData'];
+    EmployeesController.$inject = ['$scope', '$rootScope', 'EmployeesData', 'PositionsData'];
 
     /* @ngInject */
-    function EmployeesController($scope, EmployeesData) {
+    function EmployeesController($scope, $rootScope, EmployeesData, PositionsData) {
         var ctrl = this;
 
         $scope.employees = EmployeesData;
+        $scope.positions = PositionsData;
 
-        console.log($scope.employees);
-
-        $scope.addEmployee = function(){
-            var data = {
-                employeeName: $scope.employeeName,
-                employeePersonalID: $scope.employeePersonalID
-            }
-
-            var baseForBirthDate = $scope.employeePersonalID.toString().substr(0, 6);
-
-            var date = moment(baseForBirthDate, 'YYMMDD').format("DD-MM-YYYY");
-            data.birthDate = date;
-
-            $scope.employees.$add(data).then(
-                function (response) {
-                    //success
-                    console.log("Pracownik zapisany!", $scope.employees);
-
-                    $scope.employeeName = undefined;
-                    $scope.employeePersonalID = undefined;
-
-                },
-                function (error) {
-                    //error
-                    console.log("Dupa i kamieni kupa :)!");
-                }
-            );
-
+        $scope.openAddEmployeeModal = function(){
+            console.log('open');
+            $rootScope.$broadcast('openAddEmployeeModal');
         }
 
         $scope.deleteEmployee = function(item){

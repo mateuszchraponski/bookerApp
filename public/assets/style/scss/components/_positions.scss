@@ -1,0 +1,13 @@
+.positions {
+    .position-name {
+        &:after {
+            content: ", ";
+        }
+
+        &:last-child {
+            &:after {
+                content: "";
+            }
+        }
+    }
+}

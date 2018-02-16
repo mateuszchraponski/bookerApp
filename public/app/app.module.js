@@ -5,6 +5,8 @@
         .module('bookerApp', [
             'ngRoute',
             'firebase',
+            'directives',
+            'dateTimeSandbox',
             'login',
             'dashboard',
             'employees',

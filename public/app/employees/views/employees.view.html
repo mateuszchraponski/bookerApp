@@ -1,32 +1,15 @@
 <p>Pracownicy</p>
-<div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                Dodaj pracownika
-            </div>
-            <div class="panel-body">
-                <form ng-submit="addEmployee()">
-                    <div class="form-group">
-                        <label for="employeeName">Imię i nazwisko</label>
-                        <input type="text" class="form-control input-sm" ng-model="employeeName" id="employeeName" placeholder="imię i nazwisko">
-                    </div>
-                    <div class="form-group">
-                        <label for="employeePersonalID">Pesel</label>
-                        <input type="number" class="form-control input-sm" ng-model="employeePersonalID" id="employeePersonalID" placeholder="pesel">
-                    </div>
-                    <button type="submit" class="btn btn-success pull-right btn-sm">Zapisz</button>
-                </form>
-
-            </div>
-        </div>
+<div class="row mt-10">
+    <div class="col-xs-12">
+        <button type="button" class="btn btn-danger btn-sm pull-right" ng-click="openAddEmployeeModal()" name="button">Dodaj pracownika</button>
     </div>
 </div>
-<div class="row">
+<div class="row mt-20">
     <div class="col-xs-12">
         <table class="table table-striped">
             <tr>
                 <th>Imię i nazwisko</th>
+                <th style="max-width: 150px;">Stanowiska</th>
                 <th>Pesel</th>
                 <th>Data ur.</th>
                 <th>Akcje</th>
@@ -34,6 +17,9 @@
 
             <tr ng-repeat="item in employees track by $index">
                 <td>{{item.employeeName}}</td>
+                <td class="positions">
+                    <span class="position-name" ng-repeat="position in item.employeePositions">{{position.name}}</span>
+                </td>
                 <td>{{item.employeePersonalID}}</td>
                 <td>{{item.birthDate}}</td>
                 <td>

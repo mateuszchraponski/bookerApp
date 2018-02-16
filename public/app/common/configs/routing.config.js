@@ -26,6 +26,9 @@
                         }],
                         "EmployeesData": ['DataService', function(DataService) {
                             return DataService.getEmployees();
+                        }],
+                        "PositionsData": ['DataService', function(DataService) {
+                            return DataService.getPositions();
                         }]
                     }
                 }
@@ -37,6 +40,15 @@
                     resolve: {
                         "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
                             return $firebaseAuth().$requireSignIn();
+                        }],
+                        "EventsData": ['DataService', function(DataService) {
+                            return DataService.getEvents();
+                        }],
+                        "PositionsData": ['DataService', function(DataService) {
+                            return DataService.getPositions();
+                        }],
+                        "VenuesData": ['DataService', function(DataService) {
+                            return DataService.getVenues();
                         }]
                     }
                 }
@@ -70,6 +82,9 @@
                     resolve: {
                         "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
                             return $firebaseAuth().$requireSignIn();
+                        }],
+                        "VenuesData": ['DataService', function(DataService) {
+                            return DataService.getVenues();
                         }]
                     }
                 }

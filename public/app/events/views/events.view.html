@@ -1,1 +1,105 @@
-<p>Wydażenia</p>
+<p>Wydarzenia</p>
+
+<button type="button" class="btn btn-default btn-sm mb-20" name="button" ng-click="addOpen = !addOpen">
+    <i class="fa" ng-class="{'fa-angle-down': !addOpen, 'fa-angle-up': addOpen}"></i>
+</button>
+
+<div class="row mt-10" ng-show="addOpen">
+    <div class="col-xs-12">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <span>Dodaj wydarzenie</span>
+            </div>
+            <div class="panel-body">
+                <form ng-submit="saveEvent()">
+                    <div class="form-group">
+                        <label for="eventName">Nazwa wydarzenia</label>
+                        <input type="text" class="form-control input-sm" ng-model="eventName" id="eventName" placeholder="nazwa wydarzenia">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group input-group-sm">
+                                <label for="eventName">Czas wydarzenia od...</label>
+                                <input type="text" date-time-picker data-pick12HourFormat="false" class="form-control" ng-model="eventStartDate" id="eventStartDate" placeholder="od...">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group input-group-sm">
+                                <label for="eventName">Czas wydarzenia ...do</label>
+                                <input type="text" date-time-picker data-pick12HourFormat="false" class="form-control" ng-model="eventEndDate" id="eventEndDate" placeholder="...do">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventName">Lokalizacja wydarzenia</label>
+                        <select class="form-control" ng-model="eventVenue" ng-options="location.$id as location.venueName for location in venues">
+                        </select>
+                    </div>
+
+                    <p>Zapotrzebowanie</p>
+
+                    <div class="row mb-10" ng-repeat="need in eventNeeds">
+                        <div class="col-xs-8">
+                            <select class="form-control" ng-model="need.position" ng-options="position.$id as position.name for position in positions">
+                            </select>
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="number" ng-model="need.positionAmount" class="form-control" placeholder="ilość">
+                        </div>
+                    </div>
+
+                    <div class="row mt-10">
+                        <div class="col-xs-12">
+                            <button type="button" ng-click="addEventNeed()" class="btn btn-sm btn-primary" name="button">
+                                <i class="fa fa-plus"></i> Dodaj zapotrzebowanie
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-danger pull-right btn-sm" name="saveEvent">Zapisz</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-10">
+    <div class="col-xs-12">
+
+        <table class="table table-responsive">
+            <tr>
+                <th>Nazwa</th>
+                <th>od...</th>
+                <th>...do</th>
+                <th>Lokalizacja</th>
+                <th>Zapotrzebowanie</th>
+                <th>Akcje</th>
+            </tr>
+
+            <tr ng-repeat="event in events">
+                <td>{{event.eventName}}</td>
+                <td>{{event.eventStartDate}}</td>
+                <td>{{event.eventEndDate}}</td>
+                <td>{{event.eventVenueName}}</td>
+                <td>
+                    <p ng-repeat="pos in event.eventNeeds">
+                        {{pos.positionName}} - {{pos.positionAmount}}
+                    </p>
+                </td>
+                <td>
+                    <i class="fa fa-trash" ng-click="deleteEvent(event)"></i>
+                    <i class="fa fa-user-plus"></i>
+                    <i class="fa fa-users"></i>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>

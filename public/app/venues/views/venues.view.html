@@ -1,1 +1,35 @@
 <p>Lokalizacje</p>
+<div class="row">
+    <div class="col-xs-12">
+        <button type="button" class="btn btn-danger btn-sm pull-right" ng-click="openAddVenueModal()" name="button">Dodaj lokalizację</button>
+    </div>
+</div>
+<div class="row mt-20" ng-if="venues.length">
+    <div class="col-xs-12">
+        <table class="table table-striped">
+            <tr>
+                <th>Nazwa lokalizacji</th>
+                <th>Adres</th>
+                <th>Numer telefonu</th>
+                <th>Akcje</th>
+            </tr>
+
+            <tr ng-repeat="item in venues track by $index">
+                <td>{{item.venueName}}</td>
+                <td>{{item.venueAddress}}</td>
+                <td>{{item.venuePhoneNumber}}</td>
+                <td>
+                    <i class="fa fa-trash" ng-click="deleteVenue(item)"></i>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<div class="row" ng-if="!venues.length">
+    <div class="col-xs-12">
+        <div class="alert alert-info" role="alert">
+            <strong>Info!</strong> Brak lokalizacji. Dodaj jakąś.
+        </div>
+    </div>
+</div>

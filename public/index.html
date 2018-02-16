@@ -18,7 +18,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <link rel="stylesheet" href="/vendor/datepicker/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="/assets/style/css/style.css">
 
     </head>
@@ -69,7 +69,7 @@
                         </li>
                         <li>
                             <a href="#/events">
-                                Wydażenia
+                                Wydarzenia
                             </a>
                         </li>
                         <li>
@@ -97,6 +97,9 @@
                     </div>
                 </div>
             </div>
+
+            <add-employee-modal></add-employee-modal>
+            <add-venue-modal></add-venue-modal>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
@@ -106,7 +109,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js" charset="utf-8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-route.min.js" charset="utf-8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/i18n/angular-locale_pl.js" charset="utf-8"></script>
-
+        <script src="vendor/datepicker/bootstrap-datetimepicker.min.js" charset="utf-8"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
         <!-- Firebase configs -->
@@ -122,6 +125,13 @@
         <script src="app/payments/payments.module.js" charset="utf-8"></script>
         <script src="app/settings/settings.module.js" charset="utf-8"></script>
         <script src="app/venues/venues.module.js" charset="utf-8"></script>
+        <script src="app/common/directives/directives.module.js" charset="utf-8"></script>
+
+        <script src="app/common/directives/modals/add-employee/add-employee.directive.js" charset="utf-8"></script>
+        <script src="app/common/directives/modals/add-venue/add-venue.directive.js" charset="utf-8"></script>
+        <script src="app/common/directives/input/number.directive.js" charset="utf-8"></script>
+
+        <script src="vendor/datepicker/datetimepickerDirective.js" charset="utf-8"></script>
 
         <!-- Angular controllers -->
         <script src="app/main.controller.js" charset="utf-8"></script>

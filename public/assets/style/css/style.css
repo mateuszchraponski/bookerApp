@@ -22,6 +22,12 @@ body {
   font-weight: 400;
   color: #333; }
 
+.positions .position-name:after {
+  content: ", "; }
+
+.positions .position-name:last-child:after {
+  content: ""; }
+
 .user-name {
   line-height: 50px;
   padding-right: 10px; }

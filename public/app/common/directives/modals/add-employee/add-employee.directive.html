@@ -1,0 +1,32 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <form ng-submit="addEmployeeCtrl.addEmployee()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close modal-close"><span class="mdi mdi-close"></span></button>
+                    <h3 class="modal-title">Dodaj pracownika</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="employeeName">Imię i nazwisko</label>
+                        <input type="text" class="form-control input-sm" ng-model="employeeName" id="employeeName" placeholder="imię i nazwisko">
+                    </div>
+                    <div class="form-group">
+                        <label for="employeePersonalID">Pesel</label>
+                        <input type="text" maxlength="11" number class="form-control input-sm" ng-model="employeePersonalID" id="employeePersonalID" placeholder="pesel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="employeePositions">Preferowane stanowisko</label>
+                        <select multiple class="form-control" ng-model="employeePositions" id="employeePositions"
+                            ng-options="item.$id as item.name for item in positions">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success pull-right btn-sm">Zapisz</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
