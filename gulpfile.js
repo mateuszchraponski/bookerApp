@@ -7,6 +7,6 @@ gulp.task('build:sass', function () {
     .pipe(gulp.dest('./public/assets/style/css'));
 });
 
-gulp.task('sass:watch', function () {
+gulp.task('watch', function () {
   gulp.watch('./public/assets/style/scss/**/*.scss', ['build:sass']);
 });

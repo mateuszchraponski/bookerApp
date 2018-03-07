@@ -94,9 +94,17 @@
                     </p>
                 </td>
                 <td>
-                    <i class="fa fa-trash" ng-click="deleteEvent(event)"></i>
-                    <i class="fa fa-user-plus"></i>
-                    <i class="fa fa-users"></i>
+                    <button type="button" class="btn btn-default" ng-click="openBookEmployeesModal(event)" name="button">
+                        <i class="fa fa-user-plus"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-default" ng-click="openEventBookingListModal(event)" name="button">
+                        <i class="fa fa-users"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-default" ng-click="deleteEvent(event)" name="button">
+                        <i class="fa fa-trash"></i>
+                    </button>
                 </td>
             </tr>
         </table>

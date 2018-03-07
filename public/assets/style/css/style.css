@@ -31,3 +31,6 @@ body {
 .user-name {
   line-height: 50px;
   padding-right: 10px; }
+
+.modal-xl {
+  width: 80vw; }

@@ -5,10 +5,10 @@
         .module('events')
         .controller('EventsController', EventsController);
 
-    EventsController.$inject = ['$scope', 'EventsData', 'PositionsData', 'VenuesData'];
+    EventsController.$inject = ['$scope', '$rootScope', 'EventsData', 'PositionsData', 'VenuesData'];
 
     /* @ngInject */
-    function EventsController($scope, EventsData, PositionsData, VenuesData) {
+    function EventsController($scope, $rootScope, EventsData, PositionsData, VenuesData) {
         var ctrl = this;
 
         $scope.events = EventsData;
@@ -61,7 +61,8 @@
         $scope.addEventNeed = function(){
             $scope.eventNeeds.push({
                 position: null,
-                positionAmount: null
+                positionAmount: null,
+                bookedEmployees: []
             });
             console.log($scope.eventNeeds);
         }
@@ -80,5 +81,25 @@
                 }
             );
         }
+
+        $scope.openBookEmployeesModal = function(ev){
+            $rootScope.$broadcast('openBookEmployeesModal', ev);
+        }
+
+        $scope.openEventBookingListModal = function(ev){
+            $rootScope.$broadcast('openEventBookingListModal', ev);
+        }
+
+        $rootScope.$on('updateEventBookEmployee', function(e, ev){
+            console.log('try save', ev);
+            $scope.events.$save(ev).then(
+                function(resp){
+                    console.log('zapisano :)');
+                },
+                function(resp){
+                    console.log('dupa', resp);
+                }
+            )
+        });
     }
 })();

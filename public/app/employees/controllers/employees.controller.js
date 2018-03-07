@@ -5,10 +5,10 @@
         .module('employees')
         .controller('EmployeesController', EmployeesController);
 
-    EmployeesController.$inject = ['$scope', '$rootScope', 'EmployeesData', 'PositionsData'];
+    EmployeesController.$inject = ['$scope', '$rootScope', 'EmployeesData', 'PositionsData', '$location'];
 
     /* @ngInject */
-    function EmployeesController($scope, $rootScope, EmployeesData, PositionsData) {
+    function EmployeesController($scope, $rootScope, EmployeesData, PositionsData, $location) {
         var ctrl = this;
 
         $scope.employees = EmployeesData;
@@ -30,6 +30,9 @@
                     console.log("Dupa i kamieni kupa :)!");
                 }
             );
+        }
+        $scope.showEmployeeDetails = function(item) {
+            $location.path("employees/"+item.$id)
         }
     }
 })();

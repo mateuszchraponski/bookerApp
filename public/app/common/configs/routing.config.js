@@ -33,6 +33,26 @@
                     }
                 }
             )
+
+            .when(
+                '/employees/:id?',{
+                    templateUrl: 'app/employees/views/employee-details.view.html',
+                    controller: 'EmployeeDetailsController',
+                    resolve: {
+                        "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
+                            return $firebaseAuth().$requireSignIn();
+                        }],
+                        "EmployeesData": ['DataService', function(DataService) {
+                            return DataService.getEmployees();
+                        }],
+                        "PositionsData": ['DataService', function(DataService) {
+                            return DataService.getPositions();
+                        }]
+                    }
+                }
+            )
+
+
             .when(
                 '/events',{
                     templateUrl: 'app/events/views/events.view.html',

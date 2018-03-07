@@ -1,0 +1,37 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close modal-close"><span class="mdi mdi-close"></span></button>
+                <h3 class="modal-title">Zapisz pracowników na wydarzenie</h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="row" ng-repeat="need in event.eventNeeds">
+                    <div class="col-xs-12">
+                        <h5>{{need.positionName}} - {{need.positionAmount}} / {{need.bookedEmployees.length || '0'}} / {{need.positionAmount - need.bookedEmployees.length}}</h5>
+                        <div class="row mt-10" ng-repeat="employee in employees | filter : need.positionName">
+                            <div class="col-xs-8">
+                                {{employee.employeeName}}
+                            </div>
+                            <div class="col-xs-4 text-right">
+                                <button type="button"
+                                    class="btn btn-default btn-sm"
+                                    name="button"
+                                    ng-show="!employee.booked"
+                                    ng-disabled="need.positionAmount == need.bookedEmployees.length"
+                                    ng-click="bookEmployee(need, employee)">Bookuj</button>
+
+                                <button ng-show="employee.booked" ng-click="unbook(need, employee)" type="button" class="btn btn-default btn-sm" name="button">
+                                    <i class="fa fa-check"></i>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

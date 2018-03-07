@@ -23,6 +23,7 @@
                 <td>{{item.employeePersonalID}}</td>
                 <td>{{item.birthDate}}</td>
                 <td>
+                    <i class="fa fa-bars" ng-click="showEmployeeDetails(item)"></i>
                     <i class="fa fa-trash" ng-click="deleteEmployee(item)"></i>
                 </td>
             </tr>
