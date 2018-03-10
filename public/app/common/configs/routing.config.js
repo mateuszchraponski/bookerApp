@@ -91,6 +91,9 @@
                     resolve: {
                         "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
                             return $firebaseAuth().$requireSignIn();
+                        }],
+                        "PositionsData": ['DataService', function(DataService) {
+                            return DataService.getPositions();
                         }]
                     }
                 }

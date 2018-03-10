@@ -162,3 +162,62 @@
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2018-03-10T10:44:02.487Z] ----------------------------------------------------------------------
+[debug] [2018-03-10T10:44:02.496Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mateusz\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-03-10T10:44:02.497Z] CLI Version:   3.17.1
+[debug] [2018-03-10T10:44:02.497Z] Platform:      win32
+[debug] [2018-03-10T10:44:02.497Z] Node Version:  v8.9.4
+[debug] [2018-03-10T10:44:02.497Z] Time:          Sat Mar 10 2018 11:44:02 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:44:02.497Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-10T10:44:02.980Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-10T10:44:02.980Z] > authorizing via signed-in user
+[debug] [2018-03-10T10:44:02.980Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-10T10:44:02.980Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/Ipdss8mXzr_CMYSZUzzH7owDsnEFH22PXFqN4iJIDTc',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Mar 10 2018 11:44:02 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:44:03.355Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-10T10:44:03.513Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/matchr-booker  
+  
+ Sat Mar 10 2018 11:44:03 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:44:04.770Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-10T10:44:04.770Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/matchr-booker/tokens  
+  
+ Sat Mar 10 2018 11:44:04 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:44:05.683Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-10T10:49:12.057Z] ----------------------------------------------------------------------
+[debug] [2018-03-10T10:49:12.057Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mateusz\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-03-10T10:49:12.057Z] CLI Version:   3.17.1
+[debug] [2018-03-10T10:49:12.057Z] Platform:      win32
+[debug] [2018-03-10T10:49:12.057Z] Node Version:  v8.9.4
+[debug] [2018-03-10T10:49:12.057Z] Time:          Sat Mar 10 2018 11:49:12 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:49:12.057Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-10T10:49:12.073Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-10T10:49:12.073Z] > authorizing via signed-in user
+[debug] [2018-03-10T10:49:12.073Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/matchr-booker  
+  
+ Sat Mar 10 2018 11:49:12 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:49:13.714Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-10T10:49:13.714Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/matchr-booker/tokens  
+  
+ Sat Mar 10 2018 11:49:13 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:49:14.823Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Mateusz\Desktop\WEB\bookerApp\bookerApp'...
+[info] 
+[debug] [2018-03-10T10:49:14.838Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/matchr-booker  
+  
+ Sat Mar 10 2018 11:49:14 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:49:16.423Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-10T10:49:16.423Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/362237439323/clients/_:getWebAppConfig  
+  
+ Sat Mar 10 2018 11:49:16 GMT+0100 (Środkowoeuropejski czas stand.)
+[debug] [2018-03-10T10:49:17.713Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
