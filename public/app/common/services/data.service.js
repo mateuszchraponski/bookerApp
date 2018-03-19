@@ -40,5 +40,12 @@
             });
         }
 
+		this.getBookings = function() {
+            return AuthService.auth().$requireSignIn().then(function(user){
+                var ref = DbService.userDb(user.uid).child('bookings');
+                return Fire.array(ref).$loaded();
+            });
+        }
+
     }
 })();

@@ -15,18 +15,19 @@
         $scope.positions = PositionsData;
         $scope.venues = VenuesData;
 
-        angular.forEach($scope.events, function(v,k){
-            // venue name
-            var venueName = $scope.venues.$getRecord(v.eventVenue);
-            v.eventVenueName = venueName.venueName;
+		$scope.$watch('events', function(newValues, oldValues){
+			angular.forEach($scope.events, function(v,k){
+	            // venue name
+	            var venueName = $scope.venues.$getRecord(v.eventVenue);
+	            v.eventVenueName = venueName.venueName;
 
-            // need name
-            angular.forEach(v.eventNeeds, function(va, ke){
-                var positionName = $scope.positions.$getRecord(va.position);
-                va.positionName = positionName.name;
-            })
-        });
-
+	            // need name
+	            angular.forEach(v.eventNeeds, function(va, ke){
+	                var positionName = $scope.positions.$getRecord(va.position);
+	                va.positionName = positionName.name;
+	            })
+	        });
+		})
 
         $scope.eventNeeds = [];
 
@@ -86,8 +87,8 @@
             $rootScope.$broadcast('openBookEmployeesModal', ev);
         }
 
-        $scope.openEventBookingListModal = function(ev){
-            $rootScope.$broadcast('openEventBookingListModal', ev);
+        $scope.openEventStaffListModal = function(ev){
+            $rootScope.$broadcast('openEventStaffListModal', ev);
         }
 
         $rootScope.$on('updateEventBookEmployee', function(e, ev){

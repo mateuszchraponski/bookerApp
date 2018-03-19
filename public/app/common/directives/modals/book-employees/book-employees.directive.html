@@ -9,8 +9,13 @@
 
                 <div class="row" ng-repeat="need in event.eventNeeds">
                     <div class="col-xs-12">
-                        <h5>{{need.positionName}} - {{need.positionAmount}} / {{need.bookedEmployees.length || '0'}} / {{need.positionAmount - need.bookedEmployees.length}}</h5>
-                        <div class="row mt-10" ng-repeat="employee in employees | filter : need.positionName">
+                        <h5>{{need.positionName}} <small>potrzeba: {{need.positionAmount}} /
+						zapisanych: {{need.bookedEmployees}} /
+						pozostało: {{need.positionAmount - need.bookedEmployees}}</small> </h5>
+						
+                        <div class="row mt-10"
+							ng-hide="employee.alreadyBooked && employee.bookedOn != need.position"
+							ng-repeat="employee in employees | filter : need.position">
                             <div class="col-xs-8">
                                 {{employee.employeeName}}
                             </div>
@@ -18,11 +23,11 @@
                                 <button type="button"
                                     class="btn btn-default btn-sm"
                                     name="button"
-                                    ng-show="!employee.booked"
-                                    ng-disabled="need.positionAmount == need.bookedEmployees.length"
+                                    ng-show="!employee.alreadyBooked"
+                                    ng-disabled="need.positionAmount == need.bookedEmployees"
                                     ng-click="bookEmployee(need, employee)">Bookuj</button>
 
-                                <button ng-show="employee.booked" ng-click="unbook(need, employee)" type="button" class="btn btn-default btn-sm" name="button">
+                                <button ng-show="employee.alreadyBooked" ng-click="unbook(need, employee)" type="button" class="btn btn-default btn-sm" name="button">
                                     <i class="fa fa-check"></i>
                                 </button>
 

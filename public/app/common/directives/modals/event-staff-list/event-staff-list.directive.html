@@ -1,0 +1,33 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close modal-close"><span class="mdi mdi-close"></span></button>
+                <h3 class="modal-title">Lista pracowników zapisanych na event</h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="row mt-10"
+					ng-repeat="booking in bookings = (bookings | filter : event.$id) | orderBy : 'positionName'">
+                    <div class="col-xs-8">
+                        {{booking.employeeName}} - {{booking.positionName}}
+                    </div>
+                    <div class="col-xs-4 text-right">
+
+                        <button ng-click="unbook(booking)" type="button" class="btn btn-default btn-sm" name="button">
+                            Unbook
+                        </button>
+
+                    </div>
+                </div>
+
+				<div class="row" ng-show="!bookings.length">
+					<div class="col-xs-12">
+						<p>Brak pracowników zapisanych na to wydarzenie...</p>
+					</div>
+				</div>
+
+            </div>
+        </div>
+    </div>
+</div>

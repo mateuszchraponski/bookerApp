@@ -42,43 +42,84 @@
             ctrl.showModal();
 
             $scope.event = ev;
-            DataService.getEmployees().then(
-                function(data){
-                    $scope.employees = data;
 
-                    angular.forEach($scope.employees, function(v,k){
-                        v.id = v.$id;
-                    })
+			console.log($scope.event);
 
-                    console.log($scope.employees);
-                }
-            );
-            console.log(ev, $scope.employees);
+
+
+			calculateBookings();
         });
 
-        $scope.bookEmployee = function(need, employee){
+		function calculateBookings(){
+			DataService.getEmployees().then(
+                function(data){
+                    $scope.employees = data;
+                }
+            );
 
-            if(angular.isUndefined(need.bookedEmployees)){
-                need.bookedEmployees = [];
-            }
-            
-            need.bookedEmployees.push(employee);
-            employee.booked = true;
+			DataService.getBookings().then(function(data){
+				$scope.bookings = data;
 
-            $rootScope.$broadcast('updateEventBookEmployee', $scope.event);
+				angular.forEach($scope.bookings, function(booking){
+					if(booking.eventId == $scope.event.$id){
+						var employee = $scope.employees.$getRecord(booking.employeeId);
+						employee.alreadyBooked = true;
+						employee.bookedOn = booking.positionId;
+					}
+				})
 
-            console.log(need, employee);
-        }
+				angular.forEach($scope.event.eventNeeds, function(need){
+					need.bookedEmployees = 0;
+					angular.forEach($scope.bookings, function(booking){
+						if(booking.eventId == $scope.event.$id && booking.positionId == need.position){
+							need.bookedEmployees += 1;
+						}
+					})
+				})
+			})
 
-        $scope.unbook = function(need, employee){
-            // angular.forEach(need.bookedEmployees, function(v,k){
-            //     if(v.id == employee.$id){
-            //         console.log('match', v.id);
-            //     }
-            // });
-            //
-            // console.log(need.bookedEmployees, need);
-        }
+		}
+
+		$scope.bookEmployee = function(need, employee){
+			console.log(need, employee, $scope.event);
+
+			var bookingData = {
+				eventId: $scope.event.$id,
+				employeeId: employee.$id,
+				positionId: need.position
+			}
+
+			console.log(bookingData);
+
+			$scope.bookings.$add(bookingData).then(
+				function(){
+					console.log('added');
+
+					calculateBookings();
+				}
+			)
+
+		}
+
+		function deleteBooking(booking){
+			$scope.bookings.$remove(booking).then(
+				function(resp){
+					console.log('deleted');
+					calculateBookings();
+				}
+			)
+		}
+
+		$scope.unbook = function(need, employee) {
+			console.log('unbook');
+			angular.forEach($scope.bookings, function(booking){
+				console.log(booking.eventId == $scope.event.$id, booking.employeeId == employee.$id, booking.positionId == need.position);
+				if(booking.eventId == $scope.event.$id && booking.employeeId == employee.$id && booking.positionId == need.position){
+					deleteBooking(booking);
+				}
+			})
+		}
+
 
     }
 })();
