@@ -1,4 +1,11 @@
-<p>Płatności</p>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<h4>Płatności</h4>
+		</div>
+	</div>
+</div>
 
 <div class="container-fluid">
     <div class="row event-row" ng-repeat="event in events">
@@ -16,7 +23,8 @@
                         {{event.eventEndDate}}
                     </div>
                     <div class="col-xs-2">
-                        {{event.isPaid}}
+						<span ng-if="event.isAllPaid" class="label label-success">Zapłacono</span>
+						<span ng-if="!event.isAllPaid" class="label label-danger">Nie zapłacono</span>
                     </div>
                 </div>
             </div>
