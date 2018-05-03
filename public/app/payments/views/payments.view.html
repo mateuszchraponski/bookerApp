@@ -1,22 +1,22 @@
 <p>Płatności</p>
 
 <div class="container-fluid">
-    <div class="row event-row" >
+    <div class="row event-row" ng-repeat="event in events">
         <div class="col-xs-12">
 
             <div class="well">
                 <div class="row">
                     <div class="col-xs-3">
-                        <strong>Nazwa eventu</strong>
+                        <strong>{{event.eventName}}</strong>
                     </div>
                     <div class="col-xs-3 col-xs-offset-1">
-                        od
+                        {{event.eventStartDate}}
                     </div>
                     <div class="col-xs-3">
-                        do
+                        {{event.eventEndDate}}
                     </div>
                     <div class="col-xs-2">
-                        czy zpłacono
+                        {{event.isPaid}}
                     </div>
                 </div>
             </div>
@@ -29,56 +29,14 @@
                     <th>Należność</th>
                     <th>czy zapł.</th>
                 </tr>
-                <tr>
-                    <td>Mateusz</td>
-                    <td>Manager</td>
-                    <td>12</td>
-                    <td>1200</td>
+                <tr ng-repeat="booking in bookings | filter : event.$id">
+                    <td>{{booking.employee.employeeName}}</td>
+                    <td>{{booking.employeePosition.name}}</td>
+                    <td>{{booking.workHours}}</td>
+                    <td>{{booking.payAmount}}</td>
                     <td>
-                        <i class="fa fa-check-circle" style="font-size: 16px;"></i>
-                        <i class="fa fa-times-circle" style="font-size: 16px;"></i>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
-    <div class="row event-row" >
-        <div class="col-xs-12">
-
-            <div class="well">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <strong>Nazwa eventu</strong>
-                    </div>
-                    <div class="col-xs-3 col-xs-offset-1">
-                        od
-                    </div>
-                    <div class="col-xs-3">
-                        do
-                    </div>
-                    <div class="col-xs-2">
-                        czy zpłacono
-                    </div>
-                </div>
-            </div>
-
-            <table class="table">
-                <tr>
-                    <th>Imię i nzawisko</th>
-                    <th>Stanowisko</th>
-                    <th>Godziny</th>
-                    <th>Należność</th>
-                    <th>czy zapł.</th>
-                </tr>
-                <tr>
-                    <td>Mateusz</td>
-                    <td>Manager</td>
-                    <td>12</td>
-                    <td>1200</td>
-                    <td>
-                        <i class="fa fa-check-circle" style="font-size: 16px;"></i>
-                        <i class="fa fa-times-circle" style="font-size: 16px;"></i>
+                        <i class="fa fa-check-circle" ng-click="payForBooking(booking)" ng-class="{'text-success': booking.isPaid}" style="font-size: 16px;"></i>
+                        <i class="fa fa-times-circle" ng-click="deletePayForBooking(booking)" style="font-size: 16px;"></i>
                     </td>
                 </tr>
             </table>

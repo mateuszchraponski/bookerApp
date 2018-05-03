@@ -80,6 +80,18 @@
                     resolve: {
                         "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
                             return $firebaseAuth().$requireSignIn();
+                        }],
+                        "EventsData": ['DataService', function(DataService) {
+                            return DataService.getEvents();
+                        }],
+                        "BookingsData": ['DataService', function(DataService) {
+                            return DataService.getBookings();
+                        }],
+                        "EmployeesData": ['DataService', function(DataService) {
+                            return DataService.getEmployees();
+                        }],
+                        "PositionsData": ['DataService', function(DataService) {
+                            return DataService.getPositions();
                         }]
                     }
                 }

@@ -59,6 +59,7 @@
 
 			DataService.getBookings().then(function(data){
 				$scope.bookings = data;
+                ctrl.bookings = data;
 
 				angular.forEach($scope.bookings, function(booking){
 					if(booking.eventId == $scope.event.$id){
@@ -71,18 +72,14 @@
 
 		}
 
-		function deleteBooking(booking){
-			$scope.bookings.$remove(booking).then(
+		$scope.unbook = function(booking) {
+			console.log('unbook');
+            ctrl.bookings.$remove(booking).then(
 				function(resp){
 					console.log('deleted');
 					calculateBookings();
 				}
 			)
-		}
-
-		$scope.unbook = function(booking) {
-			console.log('unbook');
-			deleteBooking(booking);
 		}
 
 

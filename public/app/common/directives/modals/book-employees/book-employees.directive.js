@@ -44,9 +44,6 @@
             $scope.event = ev;
 
 			console.log($scope.event);
-
-
-
 			calculateBookings();
         });
 
@@ -113,7 +110,6 @@
 		$scope.unbook = function(need, employee) {
 			console.log('unbook');
 			angular.forEach($scope.bookings, function(booking){
-				console.log(booking.eventId == $scope.event.$id, booking.employeeId == employee.$id, booking.positionId == need.position);
 				if(booking.eventId == $scope.event.$id && booking.employeeId == employee.$id && booking.positionId == need.position){
 					deleteBooking(booking);
 				}
