@@ -1,8 +1,8 @@
-<p>Wydarzenia</p>
+<h4>Wydarzenia</h4>
 
-<button type="button" class="btn btn-default btn-sm mb-20" name="button" ng-click="addOpen = !addOpen">
+<!-- <button type="button" class="btn btn-default btn-sm mb-20" name="button" ng-click="addOpen = !addOpen">
     <i class="fa" ng-class="{'fa-angle-down': !addOpen, 'fa-angle-up': addOpen}"></i>
-</button>
+</button> -->
 
 <div class="row mt-10" ng-show="addOpen">
     <div class="col-xs-12">
@@ -53,14 +53,16 @@
                     <div class="row mt-10">
                         <div class="col-xs-12">
                             <button type="button" ng-click="addEventNeed()" class="btn btn-sm btn-primary" name="button">
-                                <i class="fa fa-plus"></i> Dodaj zapotrzebowanie
+                                <i class="fa fa-plus mr-5"></i> Dodaj kolejne zapotrzebowanie
                             </button>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <button type="submit" class="btn btn-danger pull-right btn-sm" name="saveEvent">Zapisz</button>
+                            <button type="submit" class="btn btn-danger pull-right btn-sm" name="saveEvent">
+								<i class="fa fa-save mr-5"></i> Zapisz
+							</button>
                         </div>
                     </div>
 
@@ -80,7 +82,7 @@
                 <th>...do</th>
                 <th>Lokalizacja</th>
                 <th>Zapotrzebowanie</th>
-                <th>Akcje</th>
+                <th></th>
             </tr>
 
             <tr ng-repeat="event in events">
@@ -93,16 +95,16 @@
                         {{pos.positionName}} - {{pos.positionAmount}}
                     </p>
                 </td>
-                <td>
-                    <button type="button" title="Book employees" class="btn btn-default" ng-click="openBookEmployeesModal(event)" name="button">
+                <td class="text-right">
+                    <button type="button" title="Zarezerwuj pracowników" class="btn btn-sm btn-default" ng-click="openBookEmployeesModal(event)" name="button">
                         <i class="fa fa-user-plus"></i>
                     </button>
 
-                    <button type="button" title="Staff list" class="btn btn-default" ng-click="openEventStaffListModal(event)" name="button">
+                    <button type="button" title="Lista zapisanych pracowników" class="btn btn-sm btn-default" ng-click="openEventStaffListModal(event)" name="button">
                         <i class="fa fa-users"></i>
                     </button>
 
-                    <button type="button" class="btn btn-default" ng-click="deleteEvent(event)" name="button">
+                    <button type="button" title="Usuń wydarzenie" class="btn btn-sm btn-danger" ng-click="deleteEvent(event)" name="button">
                         <i class="fa fa-trash"></i>
                     </button>
                 </td>

@@ -16,11 +16,20 @@
 .mt-20 {
   margin-top: 20px !important; }
 
+.mr-5 {
+  margin-right: 5px !important; }
+
+.pt-5 {
+  padding-top: 5px !important; }
+
 body {
   font-family: "Roboto", sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: #333; }
+
+h4 {
+  margin: 5px 0px; }
 
 .positions .position-name:after {
   content: ", "; }
@@ -34,3 +43,9 @@ body {
 
 .modal-xl {
   width: 80vw; }
+
+.btn i {
+  font-size: 16px; }
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+  vertical-align: middle; }

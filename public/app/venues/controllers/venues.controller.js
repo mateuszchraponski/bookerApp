@@ -20,6 +20,10 @@
         console.log($scope.venues);
 
         $scope.deleteVenue = function(item){
+			if (!confirm("Czy na pewno usunąć tą lokalizację?")) {
+				return;
+			}
+
             $scope.venues.$remove(item).then(
                 function (response) {
                     //success

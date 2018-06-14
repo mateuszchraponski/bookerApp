@@ -12,23 +12,25 @@
                         <h5>{{need.positionName}} <small>potrzeba: {{need.positionAmount}} /
 						zapisanych: {{need.bookedEmployees}} /
 						pozostało: {{need.positionAmount - need.bookedEmployees}}</small> </h5>
-						
+
                         <div class="row mt-10"
 							ng-hide="employee.alreadyBooked && employee.bookedOn != need.position"
 							ng-repeat="employee in employees | filter : need.position">
-                            <div class="col-xs-8">
+                            <div class="col-xs-8 pt-5">
                                 {{employee.employeeName}}
                             </div>
                             <div class="col-xs-4 text-right">
                                 <button type="button"
-                                    class="btn btn-default btn-sm"
+                                    class="btn btn-success btn-sm"
                                     name="button"
                                     ng-show="!employee.alreadyBooked"
                                     ng-disabled="need.positionAmount == need.bookedEmployees"
-                                    ng-click="bookEmployee(need, employee)">Bookuj</button>
+                                    ng-click="bookEmployee(need, employee)">
+									<i class="fa fa-check mr-5"></i> Rezerwuj
+								</button>
 
-                                <button ng-show="employee.alreadyBooked" ng-click="unbook(need, employee)" type="button" class="btn btn-default btn-sm" name="button">
-                                    <i class="fa fa-check"></i>
+                                <button ng-show="employee.alreadyBooked" ng-click="unbook(need, employee)" type="button" class="btn btn-danger btn-sm" name="button">
+                                    <i class="fa fa-ban mr-5"></i> Anuluj rezerwację
                                 </button>
 
                             </div>

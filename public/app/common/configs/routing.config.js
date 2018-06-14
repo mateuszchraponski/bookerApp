@@ -5,17 +5,17 @@
         .module('bookerApp').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 
             $routeProvider
-            .when(
-                '/dashboard',{
-                    templateUrl: 'app/dashboard/views/dashboard.view.html',
-                    controller: 'DashboardController',
-                    resolve: {
-                        "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
-                            return $firebaseAuth().$requireSignIn();
-                        }]
-                    }
-                }
-            )
+            // .when(
+            //     '/dashboard',{
+            //         templateUrl: 'app/dashboard/views/dashboard.view.html',
+            //         controller: 'DashboardController',
+            //         resolve: {
+            //             "CurrentAuth": ["$firebaseAuth", function($firebaseAuth) {
+            //                 return $firebaseAuth().$requireSignIn();
+            //             }]
+            //         }
+            //     }
+            // )
             .when(
                 '/employees',{
                     templateUrl: 'app/employees/views/employees.view.html',
@@ -136,7 +136,7 @@
                 }
             )
             .otherwise({
-                redirectTo: '/dashboard'
+                redirectTo: '/employees'
             });
 
             $locationProvider.hashPrefix('');

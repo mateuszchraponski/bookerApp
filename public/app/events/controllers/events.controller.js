@@ -10,7 +10,7 @@
     /* @ngInject */
     function EventsController($scope, $rootScope, EventsData, PositionsData, VenuesData) {
         var ctrl = this;
-
+		$scope.addOpen = true;
         $scope.events = EventsData;
         $scope.positions = PositionsData;
         $scope.venues = VenuesData;

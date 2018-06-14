@@ -56,35 +56,10 @@
 
             <div class="row">
                 <div class="col-md-2">
-                    <ul>
-                        <li>
-                            <a href="#/dashboard">
-                                Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#/employees">
-                                Pracownicy
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#/events">
-                                Wydarzenia
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#/payments">
-                                Płatności
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#/venues">
-                                Lokalizacje
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#/settings">
-                                Ustawienia
+                    <ul class="nav nav-pills nav-stacked">
+                        <li ng-repeat="item in menu" ng-class="{'active': item.active}">
+                            <a href="#{{item.link}}" ng-click="setMenuItemActive(item)">
+                                {{item.label}}
                             </a>
                         </li>
                     </ul>

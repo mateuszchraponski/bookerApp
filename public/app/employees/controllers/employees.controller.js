@@ -20,6 +20,10 @@
         }
 
         $scope.deleteEmployee = function(item){
+			if (!confirm("Czy na pewno usunąć pracownika " + item.employeeName)) {
+				return;
+			}
+
             $scope.employees.$remove(item).then(
                 function (response) {
                     //success

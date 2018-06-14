@@ -43,6 +43,54 @@
             }
         });
 
+		$scope.menu = [
+			// {
+			// 	link: '/dashboard',
+			// 	label: 'Dashboard'
+			// },
+			{
+				link: '/employees',
+				label: 'Pracownicy'
+			},
+			{
+				link: '/events',
+				label: 'Wydarzenia'
+			},
+			{
+				link: '/venues',
+				label: 'Lokalizacje'
+			},
+			{
+				link: '/payments',
+				label: 'Płatności'
+			},
+			{
+				link: '/settings',
+				label: 'Ustawienia'
+			}
+		];
+
+		$scope.setMenuItemActive = function(item){
+			console.log($location.path());
+			if (!item) {
+				var item = {
+					link: $location.path()
+				}
+			}
+
+			var active = _.find($scope.menu, ['active', true]);
+			if (active) {
+				active.active = false;
+			}
+
+			var setActive = _.find($scope.menu, ['link', item.link]);
+			if (setActive) {
+				setActive.active = true;
+			}
+		}
+
+		$scope.setMenuItemActive();
+
 
         // logout event
         $scope.logout = function(){
